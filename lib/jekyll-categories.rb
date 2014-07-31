@@ -54,14 +54,14 @@ module Jekyll
         if site.layouts.key? 'category_index'
           dir = site.config['category_dir'] || 'categories'
           site.categories.keys.each do |category|
-            write_category_index(site, File.join(dir, category.gsub(/\s/, "-").gsub(/[^\w-]/, '').downcase), category)
+            write_category_index(site, File.join(dir, category.gsub(/\s/, "-").gsub(/[^\w-+#]/, '').downcase), category)
           end
         end
 
         if site.layouts.key? 'category_feed'
           dir = site.config['category_dir'] || 'categories'
           site.categories.keys.each do |category|
-            write_category_feed(site, File.join(dir, category.gsub(/\s/, "-").gsub(/[^\w-]/, '').downcase), category)
+            write_category_feed(site, File.join(dir, category.gsub(/\s/, "-").gsub(/[^\w-+#]/, '').downcase), category)
           end
         end
 
