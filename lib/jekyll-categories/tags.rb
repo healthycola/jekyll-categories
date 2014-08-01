@@ -52,14 +52,14 @@ module Jekyll
         if site.layouts.key? 'tag_index'
           dir = site.config['tag_dir'] || 'tags'
           site.tags.keys.each do |tag|
-            write_tag_index(site, File.join(dir, tag.gsub(/\s/, "-").gsub(/[^\w-]/, '').downcase), tag)
+            write_tag_index(site, File.join(dir, tag.gsub(/\s/, "-").gsub(/[^\w-+#]/, '').downcase), tag)
           end
         end
 
         if site.layouts.key? 'tag_feed'
           dir = site.config['tag_dir'] || 'tags'
           site.tags.keys.each do |tag|
-            write_tag_feed(site, File.join(dir, tag.gsub(/\s/, "-").gsub(/[^\w-]/, '').downcase), tag)
+            write_tag_feed(site, File.join(dir, tag.gsub(/\s/, "-").gsub(/[^\w-+#]/, '').downcase), tag)
           end
         end
 
